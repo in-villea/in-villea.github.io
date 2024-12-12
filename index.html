@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>テスト</title>
+    <style type="text/css">
+      body { background-color: #f6f0e4;  }
+/* 星空の背景のスタイル */
+.stars {
+  position: relative;
+  width: 100%; /* 星空の横幅 */
+  height: 100vh; /* 星空の縦幅 */
+  background-image: url("./bg_image.png"); /* 星空の背景色 */
+  background-repeat: no-repeat;
+  overflow: hidden; /* 星が枠外にはみ出すのを防ぐ */
+  background-size: cover;
+  z-index: 2;
+}
+
+/* 星のスタイル */
+.star1 {
+  position: absolute;
+  display: block;
+  background-color: #ffffffa3; /* 星の色 */
+  border-radius: 50%;
+  box-shadow: 0px 6px 10px 0px rgba(255, 252, 233, 0.8), 7px 11px 50px 5px rgba(246, 223, 149, 0.8); /* 星の影 */
+  opacity: 0;
+  animation: twinkle 5s infinite;
+}
+.star2 {
+  position: absolute;
+  display: block;
+  background-color: #ffffffa3; /* 星の色 */
+  border-radius: 50%;
+  box-shadow: 0px 6px 10px 0px rgba(255, 252, 233, 0.8), 7px 11px 50px 5px rgba(222, 214, 168, 0.8); /* 星の影 */
+  opacity: 0;
+  animation: twinkle 5s infinite;
+}
+.star3 {
+  position: absolute;
+  display: block;
+  background-color: #ffffffa3; /* 星の色 */
+  border-radius: 50%;
+  box-shadow: 0px 6px 10px 0px rgba(236, 242, 215, 0.8), 7px 11px 50px 5px rgba(222, 255, 110, 0.8); /* 星の影 */
+  opacity: 0;
+  animation: twinkle 5s infinite;
+}
+.star4 {
+  position: absolute;
+  display: block;
+  background-color: #ffffffa3; /* 星の色 */
+  border-radius: 50%;
+  ox-shadow: 0px 6px 10px 0px rgba(245, 225, 201, 0.8), 7px 11px 50px 5px rgba(248, 207, 158, 0.8); /* 星の影 */
+  opacity: 0;
+  animation: twinkle 5s infinite;
+}
+.star5 {
+  position: absolute;
+  display: block;
+  background-color: #ffffffa3; /* 星の色 */
+  border-radius: 50%;
+  box-shadow: 0px 6px 10px 0px rgba(250, 255, 233, 0.8), 7px 11px 50px 5px rgba(235, 253, 174, 0.8); /* 星の影 */
+  opacity: 0;
+  animation: twinkle 5s infinite;
+}
+
+/* 星がキラキラ光るアニメーション */
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+    </style>
+    <script type="text/javascript">
+      window.addEventListener("DOMContentLoaded", () => {
+  // 星を表示するための親要素を取得
+  const stars = document.querySelector(".stars");
+
+  // 星を生成する関数
+  const createStar = () => {
+    const starEl = document.createElement("span");
+    starEl.className = "star"+Math.floor(Math.random() * (5 + 1));
+    const minSize = 1; // 星の最小サイズを指定
+    const maxSize = 30; // 星の最大サイズを指定
+    const size = Math.random() * (maxSize - minSize) + minSize;
+    starEl.style.width = `${size}px`;
+    starEl.style.height = `${size}px`;
+    starEl.style.left = `${Math.random() * 100}%`;
+    starEl.style.top = `${Math.random() * 100}%`;
+    starEl.style.animationDelay = `${Math.random() * 10}s`;
+    stars.appendChild(starEl);
+  };
+
+  // for文で星を生成する関数を指定した回数呼び出す
+  for (let i = 0; i <= 30; i++) {
+    createStar();
+  }
+});
+    </script>
+</head>
+<body>
+<div class="stars">
+  <!-- ここにコンテンツを入れる -->
+</div>
+</body>
+</html>
